@@ -63,7 +63,7 @@ public class Sites {
 	 * Method that displays all the readings for a given site
 	 * @return String the list of readings
 	 **/
-	public String displayRdgs() {
+	public String toString() {
 		String list = "";
 		for(Reading rdgs : readings)
 	        {	            	

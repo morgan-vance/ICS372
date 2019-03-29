@@ -1,7 +1,14 @@
 
 package ourClasses;
 import java.text.ParseException;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Iterator;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -201,8 +208,29 @@ public class Reading {
 			
 				e.printStackTrace();
 			} 
-		
-			return output;
+			JSONObject obj = new JSONObject();
+			try {
+		        obj.put("studyName", this.getStudyName());
+		        obj.put("studyID", this.getStudyId());
+		        obj.put("siteId", this.getSiteId());
+		        obj.put("rdgType", getReadingType());
+		        obj.put("rdgId", getReadingId());
+		        obj.put("rdgVal", getReadingValue());
+		        obj.put("rdgDate", getReadingDate());
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			/*try (FileWriter file = new FileWriter("testFile.json",true)) {
+
+	            file.write(obj.toJSONString());
+	            file.close();
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }*/
+			
+			
+			return obj.toJSONString();
 		} 
 
 }

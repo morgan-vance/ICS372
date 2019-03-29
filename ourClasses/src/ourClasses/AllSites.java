@@ -55,7 +55,16 @@ public class AllSites{
 		}
 	}
 	
-	
+	public String toString() {
+		String list = "";
+		for(Sites rdgs : activeSites)
+	        {	            	
+	            	list = list + rdgs.toString();
+	  
+	        }
+		
+		return list;
+	}
 	
 	/**Method will take a SiteID and traverse the active list to find it.
 	 * 
@@ -91,11 +100,14 @@ public class AllSites{
         AllSites.activeSites.add(new Sites("12345"));
         AllSites.activeSites.add(new Sites("12555"));
         AllSites.activeSites.add(new Sites("12549"));
+        AllSites.activeSites.add(new Sites("125499999"));
         
         //Add readings to sites
         AllSites.activeSites.get(0).addAReading("Midwest USA Study", "465","12345","humidity","900",78.00,"1515354694451");
         AllSites.activeSites.get(1).addAReading("Eastern USA Study", "400","12555","temperature","910",122.00,"1515354694451");
         AllSites.activeSites.get(2).addAReading("Midwest USA Study", "465","12549","temperature","930",122.00,"1515354694451");
+        AllSites.activeSites.get(2).addAReading("Midwest USA Study", "465","12548","temperature","940",122.00,"1515354694451");
+        AllSites.activeSites.get(2).addAReading("Midwest USA Study", "465","12547","temperature","950",122.00,"1515354694451");
         
         
         /* FINDSITE ONLY WORKS IN CONTROLLER, Where a reading can be added */

@@ -1,29 +1,27 @@
 package ourClasses;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Iterator;
+//import java.util.LinkedList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /*
  * SiteJson handles importing and exporting of data to file.
@@ -45,8 +43,7 @@ public class SiteReader {
 		}
 	}
 
-	public static void importFile() throws FileNotFoundException, IOException, ParseException, ParserConfigurationException, SAXException {
-
+	public static void importFile() throws FileNotFoundException, IOException, ParseException, ParserConfigurationException, SAXException, org.json.simple.parser.ParseException {
 
 		JFileChooser jfc = new JFileChooser();
 		// filter to only select .xml or .json files
@@ -70,7 +67,7 @@ public class SiteReader {
 			Iterator<?> i = site_reading.iterator();
 			//print file to console
 			while (i.hasNext()) {
-				System.out.println(i.next());				
+				System.out.println(i.next());
 			}
 			}
 			if (fileType.contains("xml")) {
@@ -112,7 +109,7 @@ public class SiteReader {
 	}
 	
 	
-	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, ParserConfigurationException, SAXException {
+	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, ParserConfigurationException, SAXException, org.json.simple.parser.ParseException {
 
 		
 		importFile();
@@ -125,6 +122,3 @@ public class SiteReader {
 	}
 	
 }
-
-
-
