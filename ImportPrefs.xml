@@ -1,0 +1,30 @@
+import java.util.prefs.*;
+import java.io.*;
+  
+public class ImportPrefs
+{
+   public void go() throws BackingStoreException {
+      try {
+         Preferences preferences = Preferences.userNodeForPackage(this.getClass());
+     
+         InputStream is = new BufferedInputStream(new FileInputStream("ReadingSet.xml"));
+         preferences.importPreferences(is);
+         is.close();
+         preferences.flush();
+      }
+      catch(BackingStoreException e) {
+         e.printStackTrace();
+      }
+      catch(InvalidPreferencesFormatException e) {
+         e.printStackTrace();
+      }
+      catch(IOException e) {
+         e.printStackTrace();
+      }
+   }
+  
+   public static void main(String []args) throws Exception {
+      ImportPrefs importPrefs = new ImportPrefs();
+      importPrefs.go();
+   }
+}
