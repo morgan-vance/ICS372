@@ -56,13 +56,14 @@ public class ReaderWriter {
     /**Method will write a JSON Object to a File
      *
      * @param content The JSON Object that will be serialized
+     * @param fileDirectory The file where data is to be saved, example: 
      */
-    public static void fileWriter(JSONObject content){
+    public static void fileWriter(String content, String fileDirectory){
         File fileDir5 = getExternalStorageDirectory();
-        File file5 = new File(fileDir5 + "/Download/json/example.json");
+        File file5 = new File(fileDir5 + fileDirectory);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file5));
-            bufferedWriter.write(content.toString());
+            bufferedWriter.write(content);
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

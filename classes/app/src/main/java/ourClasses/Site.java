@@ -247,12 +247,12 @@ public class Site {
             return "{Site with no readings}";
         }
     }
-
+  
     /**Method formats a Site and its readings for export
      *
      * @return JSONObject returns a Site objects and its readings for export
      */
-    public static JSONObject formatSiteForExport(){
+    public static JSONObject formatSiteForExportJSON(){
         JSONObject obj = new JSONObject();
         JSONArray obj2 = new JSONArray();
         for(Reading rdgs : readings)
