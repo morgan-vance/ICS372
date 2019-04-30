@@ -17,7 +17,9 @@ import java.io.InputStreamReader;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
-//class that acts like SiteReader for Android Studio
+/**ReaderWriter is responsible for FILE I/O for our Android project
+ * 
+ */
 public class ReaderWriter {
 
 
@@ -51,6 +53,11 @@ public class ReaderWriter {
         return null;
     }
 
+    /**Method will write a JSON Object to a File
+     *
+     * @param content The JSON Object that will be serialized
+     * @param fileDirectory The file where data is to be saved, example: 
+     */
     public static void fileWriter(String content, String fileDirectory){
         File fileDir5 = getExternalStorageDirectory();
         File file5 = new File(fileDir5 + fileDirectory);

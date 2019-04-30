@@ -1,0 +1,51 @@
+import java.util.prefs.*;
+import java.io.*;
+  
+public class ExportPrefs
+{
+
+	public static final String APPLICATIONPATH = "applicationpath";
+	 
+	 public static final String study = "study";
+     public static final String study_id = "study_id";
+     public static final String site_id = "site_id";
+     public static final String reading_type = "reading_type";
+     public static final String reading_id = "reading_id";
+     public static final String reading_value = "reading_value";
+     public static final String reading_date = "reading_date";
+ 
+
+   public void go() throws BackingStoreException {
+      try {
+         Preferences readingset = Preferences.userNodeForPackage(this.getClass());
+  
+         readingset.put(APPLICATIONPATH, 
+        	"C:\\Users\\abdullah01991\\ALL_PRATICE_FOR_JAVA\\ICS_372_Project\\src\\OurClasses");
+         
+         readingset.put("study", "Midwest USA Study");
+         readingset.put("study_id", "450");
+         readingset.put("site_id", "12345");
+         readingset.put("reading_type", "temprature");
+         readingset.put("reading_id", "974");
+         readingset.put("reading_value", "102.00");
+         readingset.put("reading_date", "1515354694451");
+        
+      
+         readingset.flush();
+  
+         readingset.exportSubtree(new BufferedOutputStream(
+                                   new FileOutputStream("ReadingSet.xml")));
+      }
+      catch(BackingStoreException e) {
+         e.printStackTrace();
+      }
+      catch(IOException e) {
+         e.printStackTrace();
+      }
+   }
+  
+   public static void main(String []args) throws Exception {
+      ExportPrefs exportPrefs = new ExportPrefs();
+      exportPrefs.go();
+   }
+}
