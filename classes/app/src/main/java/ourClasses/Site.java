@@ -108,7 +108,7 @@ public class Site {
         }
     }
 
-    public static JSONObject formatSiteForExport(){
+    public static JSONObject formatSiteForExportJSON(){
         JSONObject obj = new JSONObject();
         JSONArray obj2 = new JSONArray();
         for(Reading rdgs : readings)

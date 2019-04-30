@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //Toast.makeText(this, "JSON has been imported!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_export:
-                ReaderWriter.fileWriter(Site.formatSiteForExport());
+                ReaderWriter.fileWriter(Site.formatSiteForExportJSON().toString(),"/Download/json/example.json");
                 Toast.makeText(this, "Export", Toast.LENGTH_SHORT).show();
                 break;
         }
