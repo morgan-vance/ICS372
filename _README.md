@@ -1,4 +1,4 @@
-Please use the folder "ourClasses" for the most current version of the program
+Please use the zip "classes" for the most current version of the program
   
 Packages to use: ourClasses, Test
 
